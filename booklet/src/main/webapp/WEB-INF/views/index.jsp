@@ -63,32 +63,11 @@
 		   <form:checkbox path="libro.disponible" id="idDisponible" name="disponible" cssClass="m-2"/>
 		
 		
-		<button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
+		<form:button id="idButton" type="submit" data-toggle="modal" data-target="#modalAlerta">Agregar</form:button>
 	
 		</form:form>
 	</fieldset>
 	
-<%-- 		<form:form action="/contactManager/addContact" method="POST" modelAttribute="contactoDto"> --%>
-<!-- 		<fieldset> -->
-<!-- 			<legend>Mantenedor de Contactos:</legend> -->
-<!-- 			<div class="container m-5"> -->
-<%-- 				Nombre Persona: <form:input path="contacto.nombre" id="idNombre" name="nombre" cssClass="m-2"/> --%>
-<%-- 				Apellido Paterno: <form:input path="contacto.apellidoPaterno" id="idApellidoPaterno" cssClass="m-2" name="apellidoPaterno"/> --%>
-<%-- 				Apellido Materno: <form:input path="contacto.apellidoMaterno" id="idApellidoMaterno" cssClass="m-2" name="apellidoMaterno"/> --%>
-<!-- 			</div> -->
-		
-<!-- 			<div class="container"> -->
-<%-- 			Direccion : <form:input path="contacto.direccion" id="idDireccion" cssClass="m-2" name="direccion"/> --%>
-<%-- 			Telefono: <form:input path="contacto.telefono" id="idTelefono" cssClass="m-2" name="telefono"/> --%>
-<!-- 			</div> -->
-<!-- 			<hr> -->
-<!-- 			<div class="m-2"> -->
-<%-- 				<form:button id="idButton" type="submit" data-toggle="modal" data-target="#modalAlerta">Agregar</form:button> --%>
-<!-- 				<input type="button" value="Eliminar" data-toggle="modal" data-target="#modalAlerta" onclick="deleteRow()"> -->
-<!-- 			</div> -->
-<!-- 		</fieldset> -->
-<%-- 		</form:form> --%>
-		
 	</div>
 	<div class="container mt-5">
 		<fieldset class="border p-2 flex">
