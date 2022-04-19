@@ -50,16 +50,19 @@
 	
 	<fieldset class="border p-2 flex">
 	 <legend  class="float-none w-auto ">Mantenedor de Libros</legend>
-		<form:form class="form-inline" action="/Booklet/addLibro" method="POST" modelo="libroDto">
+		<form:form class="form-inline" action="/Booklet/addLibro" method="POST" modelAttribute="libroDto">
 		   <label for="idTitulo" class="">Titulo:</label>
 		   <form:input path="libro.titulo" id="idTitulo" name="titulo" cssClass="m-2"/>
 		   <label for="idAnio"  class="">Año:</label>
-		   <input type="number" class="form-control-plaintext" id="idAnio" value="">
+		   <form:input path="libro.anio" id="idAnio" name="anio" cssClass="m-2"/>
+		   <label for="idAutor" class="">Autor:</label>
+		   <form:input path="libro.autor" id="idAutor" name="autor" cssClass="m-2"/>
+		   <label for="idImprenta"  class="">Imprenta:</label>
+		   <form:input path="libro.imprenta" id="idImprenta" name="imprenta" cssClass="m-2"/>
+		   <label for="idDisponible"  class="">Disponible:</label>
+		   <form:checkbox path="libro.disponible" id="idDisponible" name="disponible" cssClass="m-2"/>
 		
-		<div class="form-group mx-sm-3 mb-2">
-		   <label for="inputPassword2" class="sr-only">Password</label>
-		   <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-		</div>
+		
 		<button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
 	
 		</form:form>
@@ -87,43 +90,21 @@
 <%-- 		</form:form> --%>
 		
 	</div>
-	<fieldset>
-			<legend>Lista de Contactos</legend>
-	<div class="container">
-		<table id="idTableSelect" class="table table-hover" >
-		<tr>
-			<th>id</th>
-			<th>Nombre</th>
-			<th>Apellido Paterno</th>
-			<th>Apellido Materno</th>
-			<th>Direccion</th>
-			<th>Telefono</th>
-		</tr>
-		
-<%-- 		<c:if test="${listaContactoDTO.size() > 0 && listaContactoDTO.get(0).getContacto().getId() > 0}"> --%>
-<%-- 				<c:forEach var="contactoDto" items="${listaContactoDTO}"> --%>
-<%-- 					<tr id="${contactoDto.getContacto().getId()}"> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getId()}"></c:out></th> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getNombre()}"></c:out></th> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getApellidoPaterno()}"></c:out></th> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getApellidoMaterno()}"></c:out></th> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getDireccion()}"></c:out></th> --%>
-<%-- 					<th><c:out value="${contactoDto.getContacto().getTelefono()}"></c:out></th> --%>
-<!-- 					</tr> -->
-<%-- 				</c:forEach> --%>
-			
-<%-- 		</c:if>	 --%>
-				                        
-	</table>
-	</div>
-	</fieldset>	
-	
-	
-	
-	
-	
-	
-		
+	<div class="container mt-5">
+		<fieldset class="border p-2 flex">
+		 <legend  class="float-none w-auto ">Mantenedor de Libros</legend>
+		 	<table id="idTableSelect" class="table table-hover" >
+			<tr>
+				<th>id</th>
+				<th>Nombre</th>
+				<th>Apellido Paterno</th>
+				<th>Apellido Materno</th>
+				<th>Direccion</th>
+				<th>Telefono</th>
+			</tr>
+		 	</table>
+		 </fieldset> 
+	 </div>
 	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/libros.js"></script>
 </body>
 </html>

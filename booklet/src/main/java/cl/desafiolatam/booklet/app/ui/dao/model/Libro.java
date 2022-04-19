@@ -13,7 +13,7 @@ public class Libro {
 	private String titulo;
 	private Date anio;
 	private String autor;
-	private String impreta;
-	private int disponible;
+	private String imprenta;
+	private boolean disponible;
 
 }

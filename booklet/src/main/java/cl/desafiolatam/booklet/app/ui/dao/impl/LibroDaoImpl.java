@@ -29,7 +29,7 @@ public class LibroDaoImpl implements LibroDao{
 		
 		String sqlInsert = "INSERT INTO public.libro (titulo,anio,autor,imprenta,disponible) VALUES (?,?,?,?,?);"; 
 		
-		int resultadoSql = jdbcTemplate.update(sqlInsert,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImpreta(),libro.getDisponible());
+		int resultadoSql = jdbcTemplate.update(sqlInsert,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImprenta(),libro.isDisponible());
 		
 		if (resultadoSql == 1) {
 			return true;
@@ -59,7 +59,7 @@ public class LibroDaoImpl implements LibroDao{
 		
 		String sqlUpdate = "UPDATE public.LIBRO SET titulo=?, anio=?, autor=?, imprenta=?, disponible=? WHERE Id=? ;"; 
 		
-		int resultadoSql = jdbcTemplate.update(sqlUpdate,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImpreta(),libro.getDisponible(),libro.getId());
+		int resultadoSql = jdbcTemplate.update(sqlUpdate,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImprenta(),libro.isDisponible(),libro.getId());
 		
 		if (resultadoSql == 1) {
 			return true;
