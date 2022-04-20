@@ -5,8 +5,9 @@ import java.util.List;
 import cl.desafiolatam.booklet.app.ui.dto.LibroDto;
 
 public interface LibroDelegate {
-	public List<LibroDto> getLibros();
-	public List<LibroDto> addLibro(LibroDto libroDTO);
-	public List<LibroDto> deleteLibro(int i);
-	public List<LibroDto> updateLibro(LibroDto libroDTO);
+	public String getLibros();
+	public String addLibro(LibroDto libroDTO);
+	public String deleteLibro(int i);
+	public String updateLibro(LibroDto libroDTO);
+	public String getMensaje();
 }

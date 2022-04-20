@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.google.gson.Gson;
+
 import cl.desafiolatam.booklet.app.ui.dao.LibroDao;
 import cl.desafiolatam.booklet.app.ui.dao.mapper.LibroMapper;
 import cl.desafiolatam.booklet.app.ui.dao.model.Libro;
@@ -18,16 +20,17 @@ public class LibroDaoImpl implements LibroDao{
 	
 	@Override
 	public List<LibroDto> getLibros(){
-		String consultaSql="SELECT l.id, l.titulo, l.anio, l.autor, l.imprenta, l.disponible FROM LIBRO l;";
+		String consultaSql="SELECT * FROM public.\"LIBRO\";";
 		return jdbcTemplate.query(consultaSql, new LibroMapper());		
 	}
+	
 	
 	@Override
 	public boolean addLibro(LibroDto libroDto) {
 		
 		Libro libro = libroDto.getLibro();
 		
-		String sqlInsert = "INSERT INTO public.libro (titulo,anio,autor,imprenta,disponible) VALUES (?,?,?,?,?);"; 
+		String sqlInsert = "INSERT INTO public.\"LIBRO\" (titulo,anio,autor,imprenta,disponible) VALUES (?,?,?,?,?);"; 
 		
 		int resultadoSql = jdbcTemplate.update(sqlInsert,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImprenta(),libro.isDisponible());
 		
@@ -41,7 +44,7 @@ public class LibroDaoImpl implements LibroDao{
 	@Override
 	public boolean deleteLibro(int i) {
 		
-		String sqlDelete = "Delete from public.libro l where l.id = ? ;"; 
+		String sqlDelete = "Delete from public.\"LIBRO\" where \"Id\" = ? ;"; 
 		
 		int resultadoSql = jdbcTemplate.update(sqlDelete,i);
 		

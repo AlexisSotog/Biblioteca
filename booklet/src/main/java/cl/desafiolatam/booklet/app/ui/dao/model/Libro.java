@@ -11,9 +11,10 @@ import lombok.Data;
 public class Libro {
 	private int id;
 	private String titulo;
-	private Date anio;
+	private String anio;
 	private String autor;
 	private String imprenta;
 	private boolean disponible;
 
+	
 }

@@ -13,7 +13,7 @@ import lombok.Data;
 public class LibroDto {
 	@Autowired
 	private Libro libro;
-	private String mensaje;
+	
 	
 
 	public Libro getLibro() {
@@ -24,10 +24,4 @@ public class LibroDto {
 		this.libro = libro;
 	}
 	
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub}
-		Gson gson = new Gson();
-		return gson.toJson(this);
-	}
 }

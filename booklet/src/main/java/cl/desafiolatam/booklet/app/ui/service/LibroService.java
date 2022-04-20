@@ -4,11 +4,13 @@ import java.util.List;
 
 import cl.desafiolatam.booklet.app.ui.dto.LibroDto;
 
+
+
 public interface LibroService {
 
 	public boolean addLibro(LibroDto libroDTO);
 
-	public List<LibroDto> getLibros();
+	public String getLibros();
 
 	public boolean deleteLibro(int i);
 

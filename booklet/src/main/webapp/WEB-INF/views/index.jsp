@@ -5,24 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 <meta charset="UTF-8">
-	<title>Login Page</title>
-   <!--Made with love by Mutiullah Samim -->
-      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-	<!--Bootsrap 4 CDN-->
-	<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!--Fontawesome CDN-->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<title>Biblioteca</title>
+   
+	  <!--Fontawesome CDN-->
+    <link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+	integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	
-	
-	<!-- JavaScript -->
-	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 	
 	<!-- CSS -->
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
@@ -34,14 +27,15 @@
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
 	
 	<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css">
-    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table-locale-all.min.js"></script>
-	
-	<!--Custom styles-->
+    <!--Custom styles-->
 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/assets/css/styles.css">
 	
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
 	<script type="text/javascript">
-		//let mensaje = "${mensaje}"; 
+		let mensaje = "${mensaje}";
+		let libroDtoJson = ${libroDtoJson};
 	</script>
 <title>Insert title here</title>
 </head>
@@ -50,40 +44,82 @@
 	
 	<fieldset class="border p-2 flex">
 	 <legend  class="float-none w-auto ">Mantenedor de Libros</legend>
-		<form:form class="form-inline" action="/Booklet/addLibro" method="POST" modelAttribute="libroDto">
+		<form:form class="form-inline " action="/Booklet/addLibro" method="POST" modelAttribute="libroDto">
 		   <label for="idTitulo" class="">Titulo:</label>
-		   <form:input path="libro.titulo" id="idTitulo" name="titulo" cssClass="m-2"/>
+		   <form:input path="libro.titulo" id="idTitulo" name="titulo" cssClass="m-2" />
 		   <label for="idAnio"  class="">Año:</label>
-		   <form:input path="libro.anio" id="idAnio" name="anio" cssClass="m-2"/>
+		   <form:input path="libro.anio" id="idAnio" name="anio" cssClass="m-2" type="text"/>
 		   <label for="idAutor" class="">Autor:</label>
 		   <form:input path="libro.autor" id="idAutor" name="autor" cssClass="m-2"/>
 		   <label for="idImprenta"  class="">Imprenta:</label>
 		   <form:input path="libro.imprenta" id="idImprenta" name="imprenta" cssClass="m-2"/>
 		   <label for="idDisponible"  class="">Disponible:</label>
 		   <form:checkbox path="libro.disponible" id="idDisponible" name="disponible" cssClass="m-2"/>
-		
-		
-		<form:button id="idButton" type="submit" data-toggle="modal" data-target="#modalAlerta">Agregar</form:button>
+		<form:button id="idButton" type="submit">Agregar</form:button>
 	
 		</form:form>
 	</fieldset>
-	
 	</div>
 	<div class="container mt-5">
 		<fieldset class="border p-2 flex">
 		 <legend  class="float-none w-auto ">Mantenedor de Libros</legend>
 		 	<table id="idTableSelect" class="table table-hover" >
-			<tr>
-				<th>id</th>
-				<th>Nombre</th>
-				<th>Apellido Paterno</th>
-				<th>Apellido Materno</th>
-				<th>Direccion</th>
-				<th>Telefono</th>
-			</tr>
+			
 		 	</table>
 		 </fieldset> 
 	 </div>
+	 
+	 <!-- Modal Editar-->
+	<div class="modal fade" id="modalEditarLibro" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Editar Libro</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form:form class="form-inline " action="/Booklet/updateLibro" method="POST" modelAttribute="libroDto">
+					   <form:input path="libro.id" id="idIdEditar" name="titulo" cssClass="m-2" class="hidden" />
+					   <label for="idTituloEditar" class="">Titulo:</label>
+					   <form:input path="libro.titulo" id="idTituloEditar" name="titulo" cssClass="m-2" />
+					   <label for="idAnioEditar"  class="">Año:</label>
+					   <form:input path="libro.anio" id="idAnioEditar" name="anio" cssClass="m-2" type="text"/>
+					   <label for="idAutorEditar" class="">Autor:</label>
+					   <form:input path="libro.autor" id="idAutorEditar" name="autor" cssClass="m-2"/>
+					   <label for="idImprentaEditar"  class="">Imprenta:</label>
+					   <form:input path="libro.imprenta" id="idImprentaEditar" name="imprenta" cssClass="m-2"/>
+					   <label for="idDisponibleEditar"  class="">Disponible:</label>
+					   <form:checkbox path="libro.disponible" id="idDisponibleEditar" name="disponible" cssClass="m-2"/>
+					<form:button id="idButtonEditar" type="submit">Agregar</form:button>
+				
+					</form:form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" id=idBtnEditarAlumno>Enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table-locale-all.min.js"></script>
+	<!-- JavaScript -->
+	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+	
+	<script src="https://kit.fontawesome.com/bedf425191.js" crossorigin="anonymous"></script>
+	
+	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+	
 	<script type="text/javascript" src="<%=request.getContextPath()%>/assets/js/libros.js"></script>
 </body>
 </html>

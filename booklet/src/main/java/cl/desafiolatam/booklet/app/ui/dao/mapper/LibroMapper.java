@@ -19,7 +19,7 @@ public class LibroMapper implements RowMapper<LibroDto>{
 		
 		libro.setId(rs.getInt("id"));
 		libro.setTitulo(rs.getString("titulo"));
-		libro.setAnio(rs.getDate("anio"));
+		libro.setAnio(rs.getString("anio"));
 		libro.setAutor(rs.getString("autor"));
 		libro.setImprenta(rs.getString("imprenta"));
 		libro.setDisponible(rs.getBoolean("disponible"));
