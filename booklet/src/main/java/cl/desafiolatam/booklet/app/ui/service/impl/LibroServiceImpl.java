@@ -22,7 +22,6 @@ public class LibroServiceImpl implements LibroService{
 	@Override
 	public boolean addLibro(LibroDto libroDTO) {
 		// TODO Auto-generated method stub
-		LibroDto var = libroDTO;
 		return libroDAO.addLibro(libroDTO);
 	}
 

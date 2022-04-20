@@ -17,10 +17,10 @@ CREATE TABLE "public"."LIBRO"
 (
 	"Id" INTEGER DEFAULT nextval('public."LIBRO_Id_seq"'::regclass) NOT NULL,
 	titulo VARCHAR(100) NULL,
-	anio DATE NULL,
+	anio  VARCHAR(100) NULL,
 	autor VARCHAR(100) NULL,
 	imprenta VARCHAR(100) NULL,
-	disponible INTEGER NULL
+	disponible BOOLEAN NULL
 );
 
 /* Add Primary Key */
