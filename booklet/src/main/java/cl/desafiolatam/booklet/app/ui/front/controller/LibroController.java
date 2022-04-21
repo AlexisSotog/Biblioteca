@@ -42,4 +42,11 @@ public class LibroController {
 		model.addAttribute("mensaje",libroDelegate.getMensaje());
 		return "forward:/Booklet";
 	}
+	@RequestMapping(value = "/Booklet/updateLibro", method= {RequestMethod.POST})
+	public String updateLibro(ModelMap model,@ModelAttribute("LibroDto")LibroDto libroDto) {
+		
+		model.addAttribute("libroDtoJson",libroDelegate.updateLibro(libroDto));
+		model.addAttribute("mensaje",libroDelegate.getMensaje());
+		return "forward:/Booklet";
+	}
 }

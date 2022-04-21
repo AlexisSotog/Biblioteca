@@ -1,4 +1,3 @@
-var $table = $('#idTableSelect')
 $('document').ready(function () { 
     
     
@@ -20,7 +19,7 @@ $('document').ready(function () {
 		}
     }
     
-	$table.bootstrapTable({
+	$('#idTableSelect').bootstrapTable({
 		data: libroDtoJson,
 		pagination: true,
 		search: true,
@@ -72,8 +71,7 @@ $('document').ready(function () {
 				//en este ejemplo agrege funcionPorDefinir y le envio el row.id
 							//console.log("row");
 				//console.log(row.idAlumno);
-				console.log(JSON.stringify(row));
-				console.log($.param(row))
+				
 				return [
 					"<a class='like' href='#' data-toggle='modal' data-target='#modalEditarLibro' onclick='onClickEditar(\"" + JSON.stringify(row).split('"').join('\\"') + "\");' title='Editar'>",						
 					'<i class="fa-solid fa-pen-to-square"></i>',
@@ -92,31 +90,32 @@ $('document').ready(function () {
               viewMode: "years", 
             minViewMode: "years"
                 });  
-     
-     $('#modelEditar').modal('show');	
+    
+    $('#idAnioEditar').datepicker({
+                  format: " yyyy",
+              viewMode: "years", 
+            minViewMode: "years"
+                });            
+                
+     	
 });
  function onClickEditar(row) {
 	
-	//let rowObj = JSON.parse(row);
 	var libroDto = JSON.parse(row);
-	console.log(libroDto);
-	console.log(libroDto.libro.id);
-	console.log(libroDto.libro.titulo);
-	console.log(libroDto.libro.anio);
-	console.log(libroDto.libro.autor);
-	console.log(libroDto.libro.imprenta);
-	console.log(libroDto.libro.disponible);
 	$('#idIdEditar').val(libroDto.libro.id);
-//	$("#idTituloEditar").val()=ibroDto.libro.titulo;
-//	$("#idTxtEditarNombre").val(alumnoDto.nombre);
-//	$("#idTxtEditarApellido").val(alumnoDto.apellido);
-//	$("#idTxtEditarFecNacimiento").val(alumnoDto.fechaNac);
+	$("#idTituloEditar").val(libroDto.libro.titulo);
+	$("#idAnioEditar").val(libroDto.libro.anio);
+	$("#idAutorEditar").val(libroDto.libro.autor);
+	$("#idImprentaEditar").val(libroDto.libro.imprenta);
+	if(libroDto.libro.disponible){
+		document.getElementById("idDisponibleEditar").checked = true;
+	}else{
+		document.getElementById("idDisponibleEditar").checked = false;
+	}
 	
 }
 
 function onClickEliminar(id){
-		
-	console.log(id);
 	window.location.href = "/Booklet/deleteLibro/?id=" +id;
 }
 

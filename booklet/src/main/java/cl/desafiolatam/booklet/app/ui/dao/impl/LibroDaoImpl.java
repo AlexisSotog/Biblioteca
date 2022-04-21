@@ -60,7 +60,7 @@ public class LibroDaoImpl implements LibroDao{
 		
 		Libro libro = libroDto.getLibro();
 		
-		String sqlUpdate = "UPDATE public.LIBRO SET titulo=?, anio=?, autor=?, imprenta=?, disponible=? WHERE Id=? ;"; 
+		String sqlUpdate = "UPDATE public.\"LIBRO\"SET titulo=?, anio=?, autor=?, imprenta=?, disponible=? WHERE \"Id\" = ? ;"; 
 		
 		int resultadoSql = jdbcTemplate.update(sqlUpdate,libro.getTitulo(),libro.getAnio(),libro.getAutor(),libro.getImprenta(),libro.isDisponible(),libro.getId());
 		
